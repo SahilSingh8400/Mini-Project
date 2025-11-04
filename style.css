@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* General reset */
 * {
     margin: 0;
@@ -13,15 +17,22 @@
     align-items: center;
     background-color: white;
     padding: 15px 8%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 .logo {
     font-size: 32px;
     font-weight: bold;
     color: #0047B3;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover{
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -34,12 +45,27 @@
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s;
-    font-weight: 400;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #0047B3;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #0047B3;
+}
+
+.nav-links a:hover::after{
+    width: 100%;
 }
 
 .nav-buttons a {
@@ -55,6 +81,7 @@
     color: #0047B3;
 }
 
+
 .signup-btn {
     background-color: #0047B3;
     color: white;
@@ -65,13 +92,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px 8%;
-    background-color: #f8faff;
+    padding: 80px 8%;
+    background: linear-gradient(120deg, #f8faff, #eef4ff);
     flex-wrap: wrap;
+    gap: 40px;
 }
 
 .hero-text {
     max-width: 500px;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity:1;
+ }
 }
 
 .hero-text h1 {
@@ -89,21 +130,68 @@
 .hero-btn {
     background-color: #0047B3;
     color: white;
-    padding: 12px 28px;
-    border-radius: 5px;
+    padding: 12px 30px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 71, 179, 0.3);
+    transition: all 0.3s ease;
 }
 
 .hero-btn:hover {
     background-color: #00378a;
+    box-shadow: 0 6px 15px rgba(0, 71, 179, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Hero Image */
 .hero-image img {
-    width: 400px;
+    width: 420px;
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 16px;
+    transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+.features {
+  text-align: center;
+  padding: 60px 8%;
+  background-color: #f8faff;
+}
+
+.features h2 {
+  color: #0047B3;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.feature-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 30px 20px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.feature-box h3 {
+  color: #0047B3;
+  margin-bottom: 10px;
 }
 
 /* Responsive */
@@ -138,13 +226,76 @@
     }
 }
 
-.photo{
+.photo {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 50px 0;
 }
 
-.photo-content img{
+.photo-content img {
     width: 100%;
-    height: 300px;
-    border-radius: 20%;
-    
+    max-width: 1200px;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-content img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-banner {
+  background: linear-gradient(120deg, #0047B3, #0078ff);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-banner h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #f8faff;
+    color: #555;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+.social-links {
+  margin-top: 10px;
+}
+
+.social-links img {
+  width: 25px;
+  margin: 0 8px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+/* Your existing CSS above */
+
+/* ----------------------------- */
+/* Fade-in Animation Section */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
