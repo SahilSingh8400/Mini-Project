@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Path Finder</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
@@ -25,9 +27,52 @@
     </nav>
     <section class="main">
         <div class="content">
-            
+            <div class="quiz">
+                <div class="quiz-box">
+                    <h2>Quick Quiz</h2>
+
+                    <div class="question">
+                        <p>1. What is your feild of interest?</p>
+                        <input type="text" placeholder="Your answer...">
+                    </div>
+
+                    <div class="question">
+                        <p>2. How much you have studied about this?</p>
+                        <input type="text" placeholder="Your answer...">
+                    </div>
+
+                    <div class="question">
+                        <p>3. Whats you future Goal?</p>
+                        <input type="text" placeholder="Your answer...">
+                    </div>
+
+                    <div class="question">
+                        <p>4. It is new topic or related to your studies?</p>
+                        <input type="text" placeholder="Your answer...">
+                    </div>
+
+                    <button class="submit-btn">Submit</button>
+                </div>
+
+            </div>
+            <div class="chatbot">
+                <div class="chatbot-box">
+                    <h2>Want more Personalized Chat here</h2>
+
+                    <div class="chat-window" id="chatWindow">
+                        <div class="bot-message">Hi! How can I help you today?</div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="userInput" placeholder="Type your message..." />
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
 </body>
+
 </html>
