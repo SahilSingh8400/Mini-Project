@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | Path Finder</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+  <div class="auth-container">
+    <h2>Sign Up</h2>
+
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter full name">
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter email">
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Create password">
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm password">
+
+    <button onclick="signupUser()">Create Account</button>
+
+    <p>
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+
+<script>
+function signupUser() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("password").value;
+    let cpass = document.getElementById("confirmPassword").value;
+
+    if (!name || !email || !pass || !cpass) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    if (pass !== cpass) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    alert("Account created successfully (Frontend Demo)");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
