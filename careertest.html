@@ -14,44 +14,44 @@
     <nav class="navbar">
         <div class="logo"><a href="index.html">PathFinder</a></div>
         <ul class="nav-links">
-            <li><a href="#">Career Counselling</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">For Students</a></li>
-            <li><a href="#">For teacher</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="career.html">Career Counselling</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="students.html">For Students</a></li>
+            <li><a href="teacher.html">For Teacher</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
         <div class="nav-buttons">
-            <a href="#" class="login-btn">Login</a>
-            <a href="#" class="signup-btn">Sign Up</a>
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
         </div>
     </nav>
     <section class="main">
         <div class="content">
             <div class="quiz">
                 <div class="quiz-box">
-                    <h2>Quick Quiz</h2>
+                    <h2>Career Assessment Quiz</h2>
 
                     <div class="question">
-                        <p>1. What is your feild of interest?</p>
-                        <input type="text" placeholder="Your answer...">
+                        <p>1. What is your primary feild of interest?</p>
+                        <input type="text" id="interest" placeholder="Your answer...">
                     </div>
 
                     <div class="question">
-                        <p>2. How much you have studied about this?</p>
-                        <input type="text" placeholder="Your answer...">
+                        <p>2. How much experience or knowledge do you have in this field?</p>
+                        <input type="text" id="knowledge" placeholder="Your answer...">
                     </div>
 
                     <div class="question">
-                        <p>3. Whats you future Goal?</p>
-                        <input type="text" placeholder="Your answer...">
+                        <p>3. Whats is your long-term career goal?</p>
+                        <input type="text" id="goal" placeholder="Your answer...">
                     </div>
 
                     <div class="question">
-                        <p>4. It is new topic or related to your studies?</p>
-                        <input type="text" placeholder="Your answer...">
+                        <p>4. Is this field new to you or related to your current status?</p>
+                        <input type="text" id="relation" placeholder="Your answer...">
                     </div>
 
-                    <button class="submit-btn">Submit</button>
+                    <button class="submit-btn" onclick="submitQuiz()">Submit</button>
                 </div>
 
             </div>
@@ -73,6 +73,47 @@
         </div>
     </section>
 
+<script>
+function submitQuiz() {
+    let interest = document.getElementById("interest").value;
+    let knowledge = document.getElementById("knowledge").value;
+    let goal = document.getElementById("goal").value;
+    let relation = document.getElementById("relation").value;
+
+    if (!interest || !knowledge || !goal || !relation) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    alert(
+      "Based on your interest in " + interest +
+      ", you can explore a career related to " + goal + "."
+    );
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let msg = input.value.trim();
+    if (msg === "") return;
+
+    let chat = document.getElementById("chatWindow");
+
+    let user = document.createElement("div");
+    user.className = "user-message";
+    user.innerText = msg;
+    chat.appendChild(user);
+
+    let bot = document.createElement("div");
+    bot.className = "bot-message";
+    bot.innerText = "Please try our career quiz for better guidance.";
+    chat.appendChild(bot);
+
+    chat.scrollTop = chat.scrollHeight;
+    input.value = "";
+}
+
+
+</script>
 </body>
 
 </html>
