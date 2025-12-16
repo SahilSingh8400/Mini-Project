@@ -230,10 +230,10 @@ html {
 
 .quiz {
     width: 60%;
-    height: 600px;
+    height: 650px;
     display: flex;
-    justify-content: center;   /* Horizontally center */
-    align-items: center;       /* Vertically center */
+    justify-content: center;   
+    align-items: center;       
 }
 
 .quiz-box {
@@ -280,6 +280,30 @@ html {
 .submit-btn:hover {
     background-color: #00378a;
 }
+
+.quiz-result {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    font-size: 20px;        
+    line-height: 1.6;
+    text-align: center;   
+}
+
+.quiz-result.error {
+    background-color: #ffe5e5;
+    color: #b30000;
+    border: 2px solid #ff9999;
+}
+
+.quiz-result.success {
+    background-color: #e6f4ea;
+    color: #0f5132;
+    border: 2px solid #a3cfbb;
+}
+
+
 
 .chatbot {
     width: 40%;
