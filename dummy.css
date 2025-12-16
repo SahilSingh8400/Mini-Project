@@ -112,8 +112,34 @@ p {
     display: inline-block;
 }
 
-/* .logo,
-.logo a {
+/* Fix Login & Signup buttons everywhere */
+.login-btn,
+.signup-btn {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    border: 1px solid #0047B3;
     color: #0047B3;
-} */
+    background: white;
+}
+
+
+.signup-btn {
+    background-color: #0047B3;
+    color: white;
+}
+
+
+.login-btn:hover,
+.signup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 71, 179, 0.25);
+}
+
 
