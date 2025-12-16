@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><a href="index.html">PathFinder</a>Path Finder</title>
+    <title>Carrertest</title>
     <link rel="stylesheet" href="carrertest.css">
 </head>
 
@@ -52,6 +52,7 @@
                     </div>
 
                     <button class="submit-btn" onclick="submitQuiz()">Submit</button>
+                    <div id="quizResult" class="quiz-result"></div>
                 </div>
 
             </div>
@@ -75,45 +76,40 @@
 
 <script>
 function submitQuiz() {
-    let interest = document.getElementById("interest").value;
+    let interest = document.getElementById("interest").value.toLowerCase();
     let knowledge = document.getElementById("knowledge").value;
     let goal = document.getElementById("goal").value;
     let relation = document.getElementById("relation").value;
 
+    let resultBox = document.getElementById("quizResult");
+
+
     if (!interest || !knowledge || !goal || !relation) {
-        alert("Please fill all fields");
+        resultBox.style.display = "block";
+        resultBox.className = "quiz-result error";
+        resultBox.innerText = "⚠️ Please fill all the fields before submitting.";
         return;
     }
 
-    alert(
-      "Based on your interest in " + interest +
-      ", you can explore a career related to " + goal + "."
-    );
+
+    let career = "Engineering";
+
+    if (interest.includes("medical")) {
+        career = "Doctor";
+    } else if (interest.includes("engineer") || interest.includes("tech")) {
+        career = "B.tech";
+    }
+
+    
+    resultBox.style.display = "block";
+    resultBox.className = "quiz-result success";
+    resultBox.innerText =
+        "🎯 Career Recommendation\n\n" +
+        "Based on your interest in \"" + interest + "\",\n" +
+        "you can explore a career path as a " + career + ".";
 }
-
-function sendMessage() {
-    let input = document.getElementById("userInput");
-    let msg = input.value.trim();
-    if (msg === "") return;
-
-    let chat = document.getElementById("chatWindow");
-
-    let user = document.createElement("div");
-    user.className = "user-message";
-    user.innerText = msg;
-    chat.appendChild(user);
-
-    let bot = document.createElement("div");
-    bot.className = "bot-message";
-    bot.innerText = "Please try our career quiz for better guidance.";
-    chat.appendChild(bot);
-
-    chat.scrollTop = chat.scrollHeight;
-    input.value = "";
-}
-
-
 </script>
+
 </body>
 <footer class="footer">
   <p>© 2025 Path Finder | Career Guidance Platform</p>
