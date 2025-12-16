@@ -26,7 +26,7 @@ html {
 .logo {
     font-size: 32px;
     font-weight: bold;
-    color: #0047B3;
+    color: #0047B3 !important;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -53,24 +53,23 @@ html {
     position: relative;
 }
 
-.nav-links a::after{
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #0047B3;
-    left: 0;
-    bottom: -4px;
-    transition: width 0.3s ease;
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .nav-links a:hover {
+    background-color: #eaf0ff;
     color: #0047B3;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 71, 179, 0.2);
 }
 
-.nav-links a:hover::after{
-    width: 100%;
-}
 
 .nav-buttons a {
     text-decoration: none;
@@ -91,7 +90,7 @@ html {
     color: white;
 }
 
-/* Hero Section */
+
 .hero {
     display: flex;
     align-items: center;
@@ -144,11 +143,11 @@ html {
 
 .hero-btn:hover {
     background-color: #00378a;
-    box-shadow: 0 6px 15px rgba(0, 71, 179, 0.4);
+    box-shadow: 0 6px 15px #0047B3;
     transform: translateY(-2px);
 }
 
-/* Hero Image */
+
 .hero-image img {
     width: 420px;
     max-width: 100%;
@@ -198,7 +197,7 @@ html {
   margin-bottom: 10px;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -287,10 +286,7 @@ html {
   transform: scale(1.2);
 }
 
-/* Your existing CSS above */
 
-/* ----------------------------- */
-/* Fade-in Animation Section */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
