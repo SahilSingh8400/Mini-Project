@@ -91,6 +91,20 @@ html {
 }
 
 
+.login-btn,
+.signup-btn {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 71, 179, 0.25);
+}
+
+
+
 .hero {
     display: flex;
     align-items: center;
